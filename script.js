@@ -2,7 +2,27 @@
 const verDetallesButton = document.getElementById('verDetalles');
 const volverButton = document.getElementById('volver');
 const tarjeta = document.querySelector('.tarjeta');
-// función para voltear la tarjeta cuando se hace clic en el botón "Ver Detalles"
+const tarjetaFrontal = tarjeta.querySelector(".frontal");
+const tarjetaPosterior = tarjeta.querySelector(".posterior");
+// Función para voltear la tarjeta
 function voltearTarjeta() {
-    tarjeta.classList.toggle('flipped');
+    tarjetaFrontal.style.transform = "rotateY(180deg)";
+    tarjetaPosterior.style.transform = "rotateY(0deg)";
 }
+
+// función para volver a la cara frontal
+function retornarTarjeta() {
+    tarjetaFrontal.style.transform = "rotateY(0deg)";
+    tarjetaPosterior.style.transform = "rotateY(180deg)";
+}
+
+function resetearEstiloTarjeta() {
+    tarjetaFrontal.style.removeProperty('transform');
+    tarjetaPosterior.style.removeProperty('transform');
+}
+
+verDetallesButton.addEventListener("click", voltearTarjeta);
+
+volverButton.addEventListener("click", retornarTarjeta);
+
+tarjeta.addEventListener("mouseleave", resetearEstiloTarjeta);
