@@ -9,20 +9,11 @@ function voltearTarjeta() {
     tarjetaFrontal.style.transform = "rotateY(180deg)";
     tarjetaPosterior.style.transform = "rotateY(0deg)";
 }
-
 // función para volver a la cara frontal
 function retornarTarjeta() {
     tarjetaFrontal.style.transform = "rotateY(0deg)";
     tarjetaPosterior.style.transform = "rotateY(180deg)";
 }
 
-function resetearEstiloTarjeta() {
-    tarjetaFrontal.style.removeProperty('transform');
-    tarjetaPosterior.style.removeProperty('transform');
-}
-
 verDetallesButton.addEventListener("click", voltearTarjeta);
-
 volverButton.addEventListener("click", retornarTarjeta);
-
-tarjeta.addEventListener("mouseleave", resetearEstiloTarjeta);
